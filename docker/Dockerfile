@@ -58,5 +58,6 @@ EXPOSE 10888/udp
 EXPOSE 10998/udp
 EXPOSE 10999/udp
 
+ENV JAVA_OPTS="-server -Xms256m -Xmx256m"
 
 ENTRYPOINT ["./dst_admin_docker.sh"]

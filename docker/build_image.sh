@@ -15,6 +15,6 @@ fi
 USERNAME=$1
 CLIENT_VERSION=$2
 
-wget http://clouddn.tugos.cn/release/dst-admin-${CLIENT_VERSION}.jar -O ./dst-admin.jar
+#wget http://clouddn.tugos.cn/release/dst-admin-${CLIENT_VERSION}.jar -O ./dst-admin.jar
 
 docker build -t ${USERNAME}/dst-admin:v${CLIENT_VERSION} .
