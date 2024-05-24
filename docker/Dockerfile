@@ -18,8 +18,7 @@ ADD dst_admin_docker.sh dst_admin_docker.sh
 RUN chmod 755 dst_admin_docker.sh
 
 RUN dpkg --add-architecture i386 \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends --no-install-suggests  \
+    && apt update && apt install -y --no-install-recommends --no-install-suggests  \
         libstdc++6:i386 \
         libgcc1:i386 \
         lib32gcc-s1 \
@@ -50,7 +49,8 @@ RUN dpkg --add-architecture i386 \
 # amd64 openjdk-8-jre-headless
 RUN wget http://snapshot.debian.org/archive/debian-security/20220210T090326Z/pool/updates/main/o/openjdk-8/openjdk-8-jre-headless_8u312-b07-1~deb9u1_amd64.deb
 RUN dpkg -i openjdk-8-jre-headless_8u312-b07-1~deb9u1_amd64.deb
-RUN apt-get clean
+RUN apt remove openjdk-11-jre-headless -y
+RUN apt autoremove -y
 RUN rm -rf openjdk-8-jre-headless_8u312-b07-1~deb9u1_amd64.deb
 
 EXPOSE 8080/tcp
